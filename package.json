@@ -1,0 +1,14 @@
+{
+  "author": "hrakotobe",
+  "dependencies": {
+    "lodash": ">=2.4.1",
+    "async": "~0.8.0",
+    "commander": "~2.2.0"
+  },
+  "description": "autoFileToDir",
+  "devDependencies": {
+    "mocha": "~1.18.2",
+    "should": "~3.3.1",
+    "rimraf": "~2.2.6"
+  }
+}
