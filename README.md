@@ -1,6 +1,8 @@
-# autoFileToDir v0.0.1
+auto-file-to-dir
+================
 
-Batch group files with a number at the end into directories matching the common name.
+Command line utility to batch organise numbered files into folders:
+
 
 i.e.:
 - fooBar 1.txt
@@ -24,8 +26,9 @@ This is a node based command line tool.
 --help will show the full list of implemented options.
 
 The main ones are:
+
 - -v for verbose output
-- -n dry-run, to see the files and directories to be processed without changing anything
+- -n to see the files and directories to be processed without changing anything (dry-run)
 
 # Disclaimer
 
