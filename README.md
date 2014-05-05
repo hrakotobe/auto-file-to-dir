@@ -9,12 +9,13 @@ i.e.:
 - fooBar 3.txt
 - fooBar 4.txt
 
--> 
+-> auto-file-to-dir 
+
 - fooBar
---  fooBar 1.txt
---  fooBar 2.txt
---  fooBar 3.txt
---  fooBar 4.txt
+    -  fooBar 1.txt
+    -  fooBar 2.txt
+    -  fooBar 3.txt
+    -  fooBar 4.txt
 
 # Requirements
 
