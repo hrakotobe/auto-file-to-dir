@@ -5,7 +5,7 @@
     "async": "~0.8.0",
     "commander": "~2.2.0"
   },
-  "description": "autoFileToDir",
+  "description": "auto-file-to-dir",
   "devDependencies": {
     "mocha": "~1.18.2",
     "should": "~3.3.1",
