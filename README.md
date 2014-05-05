@@ -3,7 +3,6 @@ auto-file-to-dir
 
 Command line utility to batch organise numbered files into folders:
 
-
 i.e.:
 - fooBar 1.txt
 - fooBar 2.txt
@@ -33,7 +32,3 @@ The main ones are:
 # Disclaimer
 
 This is a "scratch my itch" project in its very early version. Have a good backup if you intend to try it.
-
-# License
-
-BSD
