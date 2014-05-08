@@ -17,7 +17,7 @@ Command line utility to batch organise numbered files into folders:
     - [baz]fooBar 2 (buzz).txt
     - [baz]fooBar 3 (buzz).txt
     - [baz]fooBar 4 (buzz).txt
-=======
+
 -> auto-file-to-dir 
 
 - fooBar
