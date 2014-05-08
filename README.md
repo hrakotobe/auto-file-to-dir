@@ -12,7 +12,6 @@ Command line utility to batch organise numbered files into folders:
 
 *after:*
 
-<<<<<<< HEAD
 - fooBar
     - [baz]fooBar 1 (buzz).txt
     - [baz]fooBar 2 (buzz).txt
@@ -26,7 +25,6 @@ Command line utility to batch organise numbered files into folders:
     -  fooBar 2.txt
     -  fooBar 3.txt
     -  fooBar 4.txt
->>>>>>> 880dec0b6c40185f74da63dbd60efbfd910433fc
 
 # Requirements
 
