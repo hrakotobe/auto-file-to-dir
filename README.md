@@ -18,13 +18,6 @@ Command line utility to batch organise numbered files into folders:
     - [baz]fooBar 3 (buzz).txt
     - [baz]fooBar 4 (buzz).txt
 
--> auto-file-to-dir 
-
-- fooBar
-    -  fooBar 1.txt
-    -  fooBar 2.txt
-    -  fooBar 3.txt
-    -  fooBar 4.txt
 
 # Requirements
 
