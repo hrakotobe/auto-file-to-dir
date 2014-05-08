@@ -1,14 +1,26 @@
 {
   "author": "hrakotobe",
+  "version": "0.0.1",
+  "description": "auto-file-to-dir",
+  "engines": {
+    "node": "0.10.x"
+  },
+  "keywords": [
+    "auto", "file", "directory", "organize"
+  ],
+  "main": "lib",
+  "bin": {
+	  "auto-file-to-dir": "auto-file-to-dir"
+  },
   "dependencies": {
     "lodash": ">=2.4.1",
     "async": "~0.8.0",
     "commander": "~2.2.0"
   },
-  "description": "auto-file-to-dir",
   "devDependencies": {
     "mocha": "~1.18.2",
     "should": "~3.3.1",
     "rimraf": "~2.2.6"
-  }
+  },
+  "license": "BSD-2-Clause"
 }

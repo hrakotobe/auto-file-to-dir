@@ -3,18 +3,20 @@ auto-file-to-dir
 
 Command line utility to batch organise numbered files into folders:
 
-i.e.:
-- fooBar 1.txt
-- fooBar 2.txt
-- fooBar 3.txt
-- fooBar 4.txt
+*before:*
 
--> 
+- [baz]fooBar 1 (buzz).txt
+- [baz]fooBar 2 (buzz).txt
+- [baz]fooBar 3 (buzz).txt
+- [baz]fooBar 4 (buzz).txt
+
+*after:*
+
 - fooBar
---  fooBar 1.txt
---  fooBar 2.txt
---  fooBar 3.txt
---  fooBar 4.txt
+    - [baz]fooBar 1 (buzz).txt
+    - [baz]fooBar 2 (buzz).txt
+    - [baz]fooBar 3 (buzz).txt
+    - [baz]fooBar 4 (buzz).txt
 
 # Requirements
 
