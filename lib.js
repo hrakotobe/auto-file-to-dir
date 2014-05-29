@@ -116,13 +116,13 @@ function groupedFilesFromPath(filePath, callback){
 		_.forEach(sortedFiles, function(file){
 			var matches = pattern.exec(file),
 				match;
-			if(matches === null){
+			if(matches === null || matches.length < 2 || _.isEmpty(matches[1])){
 				if(program.verbose){
 					console.log('skip file %s (not matching pattern)', file);
 				}
 				return;
 			}
-			match = matches[1];
+			match = matches[1].trim();
 			// match = cleanPattern.exec(match)[1];
 			// console.log("Match " + match + " -> charcode " + match.charCodeAt(match.length-1).toString(16));
 			if(_.isEmpty(fileGroups[match])){
