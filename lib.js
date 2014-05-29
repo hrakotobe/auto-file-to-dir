@@ -9,16 +9,14 @@ var program = require('commander'),
 	
 
 var workDir = '.';
-var pattern = /^(?:\[[^\]]*\])?(.*[^0-9\uff10\uff11\uff12\uff13\uff14\uff15\uff16\uff17\uff18\uff19])(?:[0-9\uff10\uff11\uff12\uff13\uff14\uff15\uff16\uff17\uff18\uff19]+)(?: *RAW)(?: *\([^)]*\) *)\.[\w\-]*$/;
-var cleanPattern = / *(.*[^\s-])/;
-//var pattern = /^([^0-9\uff10\uff11\uff12\uff13\uff14\uff15\uff16\uff17\uff18\uff19]*)*/;
+var pattern = /^(?:\[[^\]]*\])?(.*?)([ \-0-9\uff10\uff11\uff12\uff13\uff14\uff15\uff16\uff17\uff18\uff19]*) ?(?:\[[^\]]*\])?(?:\([^\)]*\))?\..*$/;
 var version = '0.0.1';
 
 
 /* 
 	main 
 */
-function fileToDir(){
+function fileToDir(callback, options){
 	
 	//set args
 	program
@@ -31,11 +29,20 @@ function fileToDir(){
 
 	program.usage("[options] [directory]");
 	
-	parseArgs();
-		
+	parseArgs(options);
+	
+	if(workDir === null) {
+		if(typeof callback === "function"){
+			callback();
+		}
+		return;
+	}
 	groupedFilesFromPath(workDir, function(fileGroups){
 		if(_.isEmpty(fileGroups)){
 			console.log('nothing to do');
+			if(typeof callback === "function"){
+				callback();
+			}
 			return;
 		}
 		async.eachSeries(_.values(fileGroups), moveFilesIntoDir, function(err){
@@ -44,6 +51,10 @@ function fileToDir(){
 			} else {
 				console.error('error ' + err);
 			}
+			if(typeof callback === "function"){
+				callback();
+			}
+			return;
 		});
 	});
 }
@@ -57,8 +68,13 @@ function fileToDir(){
 /*
 	parse args and init global variables as needed
 */
-function parseArgs(){
-	program.parse(process.argv);
+function parseArgs(options){
+	
+	if(!_.isEmpty(options)){
+		program.parse(options);
+	} else {
+		program.parse(process.argv);
+	}
 	
 	//parse
 	var args = program.args;
@@ -107,7 +123,7 @@ function groupedFilesFromPath(filePath, callback){
 				return;
 			}
 			match = matches[1];
-			match = cleanPattern.exec(match)[1];
+			// match = cleanPattern.exec(match)[1];
 			// console.log("Match " + match + " -> charcode " + match.charCodeAt(match.length-1).toString(16));
 			if(_.isEmpty(fileGroups[match])){
 				fileGroups[match] = {directory: match, files: []};
