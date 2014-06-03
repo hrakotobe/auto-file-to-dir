@@ -12,6 +12,9 @@
     "organize"
   ],
   "main": "lib",
+  "scripts": {
+    "test": "mocha test"
+  },
   "bin": {
     "auto-file-to-dir": "auto-file-to-dir"
   },
