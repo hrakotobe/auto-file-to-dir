@@ -6,11 +6,14 @@
     "node": "0.10.x"
   },
   "keywords": [
-    "auto", "file", "directory", "organize"
+    "auto",
+    "file",
+    "directory",
+    "organize"
   ],
   "main": "lib",
   "bin": {
-	  "auto-file-to-dir": "auto-file-to-dir"
+    "auto-file-to-dir": "auto-file-to-dir"
   },
   "dependencies": {
     "lodash": ">=2.4.1",
@@ -20,7 +23,9 @@
   "devDependencies": {
     "mocha": "~1.18.2",
     "should": "~3.3.1",
-    "rimraf": "~2.2.6"
+    "node-testutil": ">=1.0",
+    "fs-extra": "~0.8.1",
+    "testutil": "~0.7.0"
   },
   "license": "BSD-2-Clause"
 }
