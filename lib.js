@@ -16,7 +16,11 @@ var version = '0.0.1';
 /* 
 	main 
 */
-function fileToDir(callback, options){
+function fileToDir(options, callback){
+	
+	if(typeof callback !== "function"){
+		callback = function(){};
+	}
 	
 	//set args
 	program
@@ -32,28 +36,24 @@ function fileToDir(callback, options){
 	parseArgs(options);
 	
 	if(workDir === null) {
-		if(typeof callback === "function"){
-			callback();
-		}
+		callback();
 		return;
 	}
 	groupedFilesFromPath(workDir, function(fileGroups){
 		if(_.isEmpty(fileGroups)){
-			console.log('nothing to do');
-			if(typeof callback === "function"){
-				callback();
-			}
+			console.log('Nothing to do.');
+			callback();
 			return;
 		}
 		async.eachSeries(_.values(fileGroups), moveFilesIntoDir, function(err){
 			if(_.isUndefined(err) || err === null){
-				console.log('finished');
+				if(program.verbose){
+					console.log('Task finished.');
+				}
 			} else {
-				console.error('error ' + err);
+				console.error('Error ' + err);
 			}
-			if(typeof callback === "function"){
-				callback();
-			}
+			callback();
 			return;
 		});
 	});
@@ -105,10 +105,14 @@ function parseArgs(options){
 	list files to be moved grouped by common name portion
 */
 function groupedFilesFromPath(filePath, callback){
+	if(typeof(callback) !== "function"){
+		callback = function(){};
+	}
 	fs.readdir(filePath, function(err, files){
 		if(err !== null && !_.isUndefined(err)){
 			//an error occurred
 			console.error('Error ' + err.name + ' ' + err.message);
+			callback();
 			return;
 		}
 		var sortedFiles = _.sortBy(files),
@@ -131,9 +135,7 @@ function groupedFilesFromPath(filePath, callback){
 			fileGroups[match].files.push(file); 
 		});
 		
-		if(typeof(callback) === "function"){
-			callback(fileGroups);
-		}
+		callback(fileGroups);
 	});
 }
 
@@ -141,6 +143,9 @@ function groupedFilesFromPath(filePath, callback){
 	move files according to their grouping
 */
 function moveFilesIntoDir(group, callback){
+	if(typeof(callback) !== "function"){
+		callback = function(){};
+	}
 	if(_.isEmpty(group.files) || group.files.length === 1){
 		if(program.verbose){
 			console.log('skip directory %s: single file or no files to move', group.directory);
