@@ -25,10 +25,10 @@ function fileToDir(options, callback){
 	//set args
 	program
 		.version(version)
-		.option("-i, --ask","don't ask for confirmation before moving files")
+		.option("-i, --ask","ask for confirmation before moving files")
 		.option("-v, --verbose", "output more information")
 		.option("-f, --force", "move files even if directory already exists")
-		.option("-n, --dry-run", "simulate processing")
+		.option("-n, --dry-run", "simulate processing (no change to files)")
 		.option("[directory]", "directory to process");
 
 	program.usage("[options] [directory]");
@@ -41,7 +41,9 @@ function fileToDir(options, callback){
 	}
 	groupedFilesFromPath(workDir, function(fileGroups){
 		if(_.isEmpty(fileGroups)){
-			console.log('Nothing to do.');
+			if(program.verbose){
+				console.log('Nothing to do.');
+			}
 			callback();
 			return;
 		}
