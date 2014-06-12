@@ -1,9 +1,11 @@
 {
-  "author": "hrakotobe",
+  "name": "auto-file-to-dir",	
   "version": "0.0.1",
-  "description": "auto-file-to-dir",
-  "engines": {
-    "node": "0.10.x"
+  "description": "Groups numbered files into folders (i.e. group \"test 01.jpg\", \"test 02.jpg\" into \"test\" folder) ",
+  "homepage": "https://github.com/hrakotobe/auto-file-to-dir",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hrakotobe/auto-file-to-dir"
   },
   "keywords": [
     "auto",
@@ -11,7 +13,15 @@
     "directory",
     "organize"
   ],
-  "main": "lib",
+  "author": {
+	  "name": "hrakotobe",
+	  "email": "haga@rakotobe.net"
+  },
+  "engines": {
+    "node": "0.10.x"
+  },
+
+  "main": "./lib",
   "scripts": {
     "test": "mocha test"
   },
