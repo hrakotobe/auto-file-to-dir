@@ -21,7 +21,7 @@ function executeTest(testFiles, expectedDir, commandOptions, done){
 	//test
 	lib.fileToDir(commandOptions, function(){
 			testResult(testFiles, expectedDir, done);
-		});
+	});
 }
 
 function testResult(testFiles, expectedDirectory, done){
@@ -41,21 +41,22 @@ function testResult(testFiles, expectedDirectory, done){
 describe('auto-file-to-dir', function() {
 	beforeEach(function(done) {
 		TEST_DIR = testutil.createTestDir("move-test");
-		fs.readdir(TEST_DIR, function(err, resultFiles){
-			console.log('before directory:');
-			console.log(resultFiles);
-			done();
-		});
+		done();
+		// fs.readdir(TEST_DIR, function(err, resultFiles){
+// 			console.log('before directory:');
+// 			console.log(resultFiles);
+// 			done();
+// 		});
 	});
 	
 	afterEach(function(done) {
-		console.log('after');
+		// console.log('after');
+		fs.remove(TEST_DIR, done);
 		
-		fs.readdir(TEST_DIR, function(err, resultFiles){
-			console.log('resulting directory:');
-			console.log(resultFiles);
-			fs.remove(TEST_DIR, done);
-		});
+		// fs.readdir(TEST_DIR, function(err, resultFiles){
+		// 	console.log('resulting directory:');
+		// 	console.log(resultFiles);
+		// });
 	});
 
 	////////////////// TESTS
