@@ -1,6 +1,6 @@
 {
   "name": "auto-file-to-dir",	
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Groups numbered files into folders (i.e. group \"test 01.jpg\", \"test 02.jpg\" into \"test\" folder) ",
   "homepage": "https://github.com/hrakotobe/auto-file-to-dir",
   "repository": {
